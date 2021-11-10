@@ -2,7 +2,7 @@ import type { NextPage, GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = (props) => {
   useEffect(() => {
@@ -20,13 +20,15 @@ const Home: NextPage = (props) => {
       </Head>
       <div className={styles.main}>
         <nav className={styles.navbar}>
-          <div className={styles.logo}>Shortly</div>
-          <div>
-            <a className={styles.link}>Features</a>
-            <a className={styles.link}>Pricing</a>
-            <a className={styles.link}>Resources</a>
+          <div className={styles.left}>
+            <h1 className={styles.logo}>Shortly</h1>
+            <div className={styles.links}>
+              <a className={styles.link}>Features</a>
+              <a className={styles.link}>Pricing</a>
+              <a className={styles.link}>Resources</a>
+            </div>
           </div>
-          <div>
+          <div className={styles.right}>
             <button className={styles.login}>Login</button>
             <button className={styles.signup}>Sign Up</button>
           </div>
