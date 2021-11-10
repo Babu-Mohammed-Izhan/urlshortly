@@ -1,8 +1,9 @@
 .container {
-  max-width: 80%;
-  margin: auto;
+  max-width: 100%;
   .main {
     .navbar {
+      max-width: 80%;
+      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -39,10 +40,12 @@
       }
     }
     .hero {
+      max-width: 80%;
+      margin: auto;
       .main {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        min-height: 50vh;
+        min-height: 60vh;
         .leftside {
           display: flex;
           align-items: flex-start;
@@ -93,6 +96,79 @@
           padding: 10px 1.2rem;
           margin: 0rem 0.5rem;
           border-radius: 5px;
+        }
+      }
+    }
+    .cardsection {
+      max-width: 80%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 70vh;
+      .cardsectitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 3rem 0px;
+        h1 {
+          font-size: 2rem;
+          font-weight: 700;
+        }
+        p {
+          color: hsl(257, 7%, 63%);
+          padding: 0px 9rem;
+          text-align: center;
+        }
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .card {
+          padding: 10px 20px;
+        }
+      }
+    }
+
+    .calltoaction {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 25vh;
+      background-color: hsl(257, 27%, 26%);
+      h2 {
+        color: white;
+        padding-bottom: 2rem;
+        margin: 0px;
+      }
+      button {
+        background-color: hsl(180, 66%, 49%);
+        border: none;
+        color: white;
+        padding: 10px 1.2rem;
+        margin: 0rem 0.5rem;
+        border-radius: 25px;
+      }
+    }
+
+    .footerwrapper {
+      min-height: 30vh;
+      background-color: hsl(260, 8%, 14%);
+      .footer {
+        max-width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        color: white;
+        min-height: 100%;
+        .links {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          flex-direction: column;
         }
       }
     }

@@ -54,24 +54,38 @@ const Home: NextPage = (props) => {
         </section>
         <section className={styles.cardsection}>
           <div className={styles.cardsectitle}>
-            Advanced Statistics Track how your links are performing across the
-            web with our advanced statistics dashboard.
+            <h1>Advanced Statistics</h1>
+            <p>
+              {" "}
+              Track how your links are performing across the web with our
+              advanced statistics dashboard.
+            </p>
           </div>
           <div className={styles.cards}>
             <div className={styles.card}>
-              Brand Recognition Boost your brand recognition with each click.
-              Generic links don’t mean a thing. Branded links help instil
-              confidence in your content.
+              <h1> Brand Recognition</h1>
+              <p>
+                {" "}
+                Boost your brand recognition with each click. Generic links
+                don’t mean a thing. Branded links help instil confidence in your
+                content.
+              </p>
             </div>
             <div className={styles.card}>
-              Detailed Records Gain insights into who is clicking your links.
-              Knowing when and where people engage with your content helps
-              inform better decisions.
+              <h1>Detailed Records</h1>
+              <p>
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions.
+              </p>
             </div>
             <div className={styles.card}>
-              Fully Customizable Improve brand awareness and content
-              discoverability through customizable links, supercharging audience
-              engagement.
+              <h1>Fully Customizable</h1>
+              <p>
+                {" "}
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </p>
             </div>
           </div>
         </section>
@@ -80,19 +94,21 @@ const Home: NextPage = (props) => {
           <h2 className={styles.title}>Boost your links today</h2>
           <button className={styles.started}>Get Started</button>
         </section>
-        <footer className={styles.footer}>
-          <h3 className={styles.logo}>Shortly</h3>
-          <div className={styles.links}>
-            <h4>Features</h4> <a href="#">Link Shortening</a>{" "}
-            <a href="#">Branded Links</a> <a href="#">Analytics</a>{" "}
-          </div>
-          <div className={styles.links}>
-            <h4>Resources</h4> <a href="#">Blog</a> <a href="#"> Developers</a>{" "}
-            <a href="#"> Support</a>{" "}
-          </div>
-          <div className={styles.links}>
-            <h4>Company</h4> <a href="#">About</a> <a href="#">Our Team</a>{" "}
-            <a href="#">Careers</a> <a href="#">Contact</a>{" "}
+        <footer className={styles.footerwrapper}>
+          <div className={styles.footer}>
+            <h3 className={styles.logo}>Shortly</h3>
+            <div className={styles.links}>
+              <h4>Features</h4> <a href="#">Link Shortening</a>{" "}
+              <a href="#">Branded Links</a> <a href="#">Analytics</a>{" "}
+            </div>
+            <div className={styles.links}>
+              <h4>Resources</h4> <a href="#">Blog</a>{" "}
+              <a href="#"> Developers</a> <a href="#"> Support</a>{" "}
+            </div>
+            <div className={styles.links}>
+              <h4>Company</h4> <a href="#">About</a> <a href="#">Our Team</a>{" "}
+              <a href="#">Careers</a> <a href="#">Contact</a>{" "}
+            </div>
           </div>
         </footer>
       </div>
