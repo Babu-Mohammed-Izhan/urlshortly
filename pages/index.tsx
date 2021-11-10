@@ -1,16 +1,26 @@
 import type { NextPage, GetStaticProps } from "next";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = (props) => {
+  const [url, setUrl] = useState("");
   useEffect(() => {
     if (window) {
       const data = window.localStorage.getItem("links");
       console.log(data);
     }
   }, []);
+
+  const handleInput = (e: {
+    target: { value: SetStateAction<string> };
+  }): void => {
+    setUrl(e.target.value);
+  };
+
+  const handleSubmit = (): void => {};
+
   return (
     <div className={styles.container}>
       <Head>
@@ -47,9 +57,14 @@ const Home: NextPage = (props) => {
           </div>
 
           <div className={styles.linkinput}>
-            <input type="text" placeholder="Shorten a link here..." />
+            <input
+              type="text"
+              value={url}
+              placeholder="Shorten a link here..."
+              onChange={handleInput}
+            />
 
-            <button>Shorten It!</button>
+            <button onClick={() => handleSubmit}>Shorten It!</button>
           </div>
         </section>
         <section className={styles.cardsection}>
