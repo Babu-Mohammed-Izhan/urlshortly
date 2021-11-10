@@ -1,9 +1,16 @@
 import type { NextPage, GetStaticProps } from "next";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = (props) => {
+  useEffect(() => {
+    if (window) {
+      const data = window.localStorage.getItem("links");
+      console.log(data);
+    }
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -25,8 +32,8 @@ const Home: NextPage = (props) => {
           </div>
         </nav>
         <section className={styles.hero}>
-          <div>
-            <div>
+          <div className={styles.main}>
+            <div className={styles.leftside}>
               <h1>More than just shorter links</h1>
               <p>
                 Build your brand’s recognition and get detailed insights on how
@@ -34,32 +41,32 @@ const Home: NextPage = (props) => {
               </p>
               <button>Get Started</button>
             </div>
-            <div>Image</div>
+            <div className={styles.rightside}>Image</div>
           </div>
 
-          <div>
+          <div className={styles.linkinput}>
             <input type="text" placeholder="Shorten a link here..." />
 
             <button>Shorten It!</button>
           </div>
         </section>
-        <section>
-          <div>
+        <section className={styles.cardsection}>
+          <div className={styles.cardsectitle}>
             Advanced Statistics Track how your links are performing across the
             web with our advanced statistics dashboard.
           </div>
-          <div>
-            <div>
+          <div className={styles.cards}>
+            <div className={styles.card}>
               Brand Recognition Boost your brand recognition with each click.
               Generic links don’t mean a thing. Branded links help instil
               confidence in your content.
             </div>
-            <div>
+            <div className={styles.card}>
               Detailed Records Gain insights into who is clicking your links.
               Knowing when and where people engage with your content helps
               inform better decisions.
             </div>
-            <div>
+            <div className={styles.card}>
               Fully Customizable Improve brand awareness and content
               discoverability through customizable links, supercharging audience
               engagement.
@@ -67,15 +74,24 @@ const Home: NextPage = (props) => {
           </div>
         </section>
 
-        <section>
-          <h2>Boost your links today</h2>
-          <button>Get Started</button>
+        <section className={styles.calltoaction}>
+          <h2 className={styles.title}>Boost your links today</h2>
+          <button className={styles.started}>Get Started</button>
         </section>
-        <footer>
-          <h3>Shortly</h3>
-          <div>Features Link Shortening Branded Links Analytics</div>
-          <div>Resources Blog Developers Support</div>
-          <div>Company About Our Team Careers Contact</div>
+        <footer className={styles.footer}>
+          <h3 className={styles.logo}>Shortly</h3>
+          <div className={styles.links}>
+            <h4>Features</h4> <a href="#">Link Shortening</a>{" "}
+            <a href="#">Branded Links</a> <a href="#">Analytics</a>{" "}
+          </div>
+          <div className={styles.links}>
+            <h4>Resources</h4> <a href="#">Blog</a> <a href="#"> Developers</a>{" "}
+            <a href="#"> Support</a>{" "}
+          </div>
+          <div className={styles.links}>
+            <h4>Company</h4> <a href="#">About</a> <a href="#">Our Team</a>{" "}
+            <a href="#">Careers</a> <a href="#">Contact</a>{" "}
+          </div>
         </footer>
       </div>
     </div>
@@ -84,6 +100,10 @@ const Home: NextPage = (props) => {
 
 export default Home;
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   return context
-// }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      exapmle: "example",
+    },
+  };
+};
