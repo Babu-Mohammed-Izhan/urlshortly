@@ -23,6 +23,7 @@
           .link {
             padding-right: 20px;
             color: hsl(0, 0%, 75%);
+            cursor: pointer;
           }
         }
       }
@@ -31,6 +32,7 @@
           border: none;
           background-color: white;
           color: hsl(0, 0%, 75%);
+          cursor: pointer;
         }
         .signup {
           background-color: hsl(180, 66%, 49%);
@@ -39,6 +41,7 @@
           padding: 10px 1.2rem;
           margin: 0rem 0.5rem;
           border-radius: 50px;
+          cursor: pointer;
         }
       }
     }
@@ -49,6 +52,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         min-height: 60vh;
+        margin-bottom: 30px;
         .leftside {
           display: flex;
           align-items: flex-start;
@@ -70,6 +74,7 @@
             border-radius: 50px;
             font-size: 17px;
             font-weight: 600;
+            cursor: pointer;
           }
         }
         .rightside {
@@ -87,18 +92,20 @@
         border-radius: 5px;
         padding: 2rem 0px;
         input {
-          min-width: 70%;
+          min-width: 75%;
           border-radius: 5px;
           border: white;
-          padding: 10px 1rem;
+          padding: 15px 1rem;
         }
         button {
           background-color: hsl(180, 66%, 49%);
           border: none;
           color: white;
-          padding: 10px 1.2rem;
+          padding: 15px 1.2rem;
           margin: 0rem 0.5rem;
           border-radius: 5px;
+          cursor: pointer;
+          font-size: 15px;
           cursor: pointer;
         }
       }
@@ -133,6 +140,7 @@
             margin: 0rem 0.5rem;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 15px;
           }
         }
       }
@@ -152,7 +160,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin: 3rem 0px;
+        margin: 3rem 0px 1rem 0px;
         h1 {
           font-size: 2rem;
           font-weight: 700;
@@ -170,11 +178,11 @@
         margin: 30px auto;
         max-height: 60%;
         .card {
-          min-width: 90%;
-          background-color: white;
+          max-width: 80%;
+          background-color: rgb(255, 255, 255);
           border-radius: 5px;
-          padding: 10px;
-          margin: 0px 10px;
+          padding: 15px;
+          margin: 0px auto;
           h1 {
             font-size: 1.3rem;
           }
@@ -205,6 +213,8 @@
         padding: 10px 1.2rem;
         margin: 0rem 0.5rem;
         border-radius: 25px;
+        font-size: 20px;
+        cursor: pointer;
       }
     }
 

@@ -3,6 +3,7 @@ import { useState, useEffect, SetStateAction } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import working from "../public/images/illustration-working.svg";
 
 interface Url {
   originalLink: string;
@@ -72,7 +73,13 @@ const Home: NextPage = (props) => {
               </p>
               <button>Get Started</button>
             </div>
-            <div className={styles.rightside}>Image</div>
+            <Image
+              className={styles.rightside}
+              width="100%"
+              height="80%"
+              src={working}
+              alt="hero"
+            />
           </div>
 
           <div className={styles.linkinput}>
@@ -90,7 +97,6 @@ const Home: NextPage = (props) => {
         <section className={styles.links}>
           {shortUrl &&
             shortUrl.map((link) => {
-              let clicked = false;
               return (
                 <div key={link.shortLink} className={styles.shortlink}>
                   <p>{link.originalLink}</p>
@@ -99,10 +105,9 @@ const Home: NextPage = (props) => {
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(link.shortLink);
-                        clicked = true;
                       }}
                     >
-                      {clicked ? "Copied" : "Copy"}
+                      Copy
                     </button>
                   </div>
                 </div>
