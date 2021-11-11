@@ -84,7 +84,7 @@
         border-radius: 5px;
         padding: 2rem 0px;
         input {
-          min-width: 75%;
+          min-width: 70%;
           border-radius: 5px;
           border: white;
           padding: 10px 1rem;
@@ -96,7 +96,17 @@
           padding: 10px 1.2rem;
           margin: 0rem 0.5rem;
           border-radius: 5px;
+          cursor: pointer;
         }
+      }
+    }
+    .links {
+      max-width: 80%;
+      margin: auto;
+      .shortlink {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
     }
     .cardsection {

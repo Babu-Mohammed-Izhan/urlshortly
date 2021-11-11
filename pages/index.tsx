@@ -4,22 +4,42 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
+interface Url {
+  originalLink: string;
+  shortLink: string;
+}
+
 const Home: NextPage = (props) => {
   const [url, setUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState<Url[]>([]);
+
   useEffect(() => {
     if (window) {
       const data = window.localStorage.getItem("links");
-      console.log(data);
     }
   }, []);
 
-  const handleInput = (e: {
-    target: { value: SetStateAction<string> };
-  }): void => {
+  const handleInput = (e: any): void => {
     setUrl(e.target.value);
   };
 
-  const handleSubmit = (): void => {};
+  const handleSubmit = (): void => {
+    fetch(`https://api.shrtco.de/v2/shorten?url=${url}/very/long/link.html`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setShortUrl([
+          ...shortUrl,
+          {
+            originalLink: url,
+            shortLink: data.result.short_link,
+          },
+        ]);
+      });
+    setUrl("");
+  };
 
   return (
     <div className={styles.container}>
@@ -59,13 +79,28 @@ const Home: NextPage = (props) => {
           <div className={styles.linkinput}>
             <input
               type="text"
-              value={url}
               placeholder="Shorten a link here..."
+              required
+              value={url}
               onChange={handleInput}
             />
 
-            <button onClick={() => handleSubmit}>Shorten It!</button>
+            <button onClick={() => handleSubmit()}>Shorten It!</button>
           </div>
+        </section>
+        <section className={styles.links}>
+          {shortUrl &&
+            shortUrl.map((link) => {
+              return (
+                <div key={link.shortLink} className={styles.shortlink}>
+                  <h1>{link.originalLink}</h1>
+                  <div className={styles.rightside}>
+                    <a href={link.shortLink}>{link.shortLink}</a>
+                    <button>Copy</button>
+                  </div>
+                </div>
+              );
+            })}
         </section>
         <section className={styles.cardsection}>
           <div className={styles.cardsectitle}>
