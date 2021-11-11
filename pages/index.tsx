@@ -4,6 +4,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import working from "../public/images/illustration-working.svg";
+import facebook from "../public/images/icon-facebook.svg";
+import instagram from "../public/images/icon-instagram.svg";
+import twitter from "../public/images/icon-twitter.svg";
+import pintrest from "../public/images/icon-pinterest.svg";
 
 interface Url {
   originalLink: string;
@@ -170,6 +174,24 @@ const Home: NextPage = (props) => {
             <div className={styles.links}>
               <h4>Company</h4> <a href="#">About</a> <a href="#">Our Team</a>{" "}
               <a href="#">Careers</a> <a href="#">Contact</a>{" "}
+            </div>
+            <div className={styles.icons}>
+              <div>
+                {" "}
+                <Image width="24px" height="24px" src={facebook} alt="hero" />
+              </div>
+              <div>
+                {" "}
+                <Image width="24px" height="24px" src={instagram} alt="hero" />
+              </div>
+              <div>
+                {" "}
+                <Image width="24px" height="24px" src={twitter} alt="hero" />
+              </div>
+              <div>
+                {" "}
+                <Image width="24px" height="24px" src={pintrest} alt="hero" />
+              </div>
             </div>
           </div>
         </footer>

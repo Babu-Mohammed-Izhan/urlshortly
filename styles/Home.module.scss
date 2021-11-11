@@ -229,12 +229,29 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         color: white;
         min-height: 100%;
+        padding-top: 30px;
+        h3 {
+          margin: 0px;
+        }
         .links {
           background-color: hsl(260, 8%, 14%);
           display: flex;
           align-items: flex-start;
           justify-content: flex-start;
           flex-direction: column;
+          padding: 0px;
+          h4 {
+            margin: 0px;
+          }
+        }
+        .icons {
+          padding: 0px;
+          display: flex;
+          padding-top: 5px;
+          div {
+            margin: 0px;
+            padding: 0px 10px;
+          }
         }
       }
     }
