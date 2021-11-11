@@ -29,12 +29,11 @@ const Home: NextPage = (props) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setShortUrl([
           ...shortUrl,
           {
             originalLink: url,
-            shortLink: data.result.short_link,
+            shortLink: data.result.full_short_link,
           },
         ]);
       });
@@ -52,7 +51,7 @@ const Home: NextPage = (props) => {
         <nav className={styles.navbar}>
           <div className={styles.left}>
             <h1 className={styles.logo}>Shortly</h1>
-            <div className={styles.links}>
+            <div className={styles.navlinks}>
               <a className={styles.link}>Features</a>
               <a className={styles.link}>Pricing</a>
               <a className={styles.link}>Resources</a>
@@ -91,12 +90,20 @@ const Home: NextPage = (props) => {
         <section className={styles.links}>
           {shortUrl &&
             shortUrl.map((link) => {
+              let clicked = false;
               return (
                 <div key={link.shortLink} className={styles.shortlink}>
-                  <h1>{link.originalLink}</h1>
+                  <p>{link.originalLink}</p>
                   <div className={styles.rightside}>
                     <a href={link.shortLink}>{link.shortLink}</a>
-                    <button>Copy</button>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(link.shortLink);
+                        clicked = true;
+                      }}
+                    >
+                      {clicked ? "Copied" : "Copy"}
+                    </button>
                   </div>
                 </div>
               );
