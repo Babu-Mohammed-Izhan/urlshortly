@@ -242,21 +242,20 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         width: 80%;
+        gap: 1em;
         margin: 30px auto;
-        height: 50%;
+
         @media (max-width: 700px) {
           display: grid;
           grid-template-columns: 1fr;
         }
+
         .card {
-          max-width: 80%;
+          width: 100%;
           background-color: rgb(255, 255, 255);
           border-radius: 5px;
           padding: 15px;
           margin: 0px auto;
-          @media (max-width: 700px) {
-            margin-top: 2rem;
-          }
           h1 {
             font-size: 1.3rem;
           }
