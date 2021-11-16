@@ -17,6 +17,7 @@ interface Url {
 const Home: NextPage = (props) => {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState<Url[]>([]);
+  const [copied, setCopied] = useState<Number | null>(null);
 
   useEffect(() => {
     if (window) {
@@ -62,10 +63,6 @@ const Home: NextPage = (props) => {
               <a className={styles.link}>Resources</a>
             </div>
           </div>
-          <div className={styles.right}>
-            <button className={styles.login}>Login</button>
-            <button className={styles.signup}>Sign Up</button>
-          </div>
         </nav>
         <section className={styles.hero}>
           <div className={styles.main}>
@@ -77,13 +74,9 @@ const Home: NextPage = (props) => {
               </p>
               <button>Get Started</button>
             </div>
-            <Image
-              className={styles.rightside}
-              width="100%"
-              height="80%"
-              src={working}
-              alt="hero"
-            />
+            <div className={styles.rightside}>
+              <Image width="500px" height="400px" src={working} alt="hero" />
+            </div>
           </div>
 
           <div className={styles.linkinput}>
@@ -98,9 +91,9 @@ const Home: NextPage = (props) => {
             <button onClick={() => handleSubmit()}>Shorten It!</button>
           </div>
         </section>
-        <section className={styles.links}>
+        <section className={styles.shortlinks}>
           {shortUrl &&
-            shortUrl.map((link) => {
+            shortUrl.map((link, idx) => {
               return (
                 <div key={link.shortLink} className={styles.shortlink}>
                   <p>{link.originalLink}</p>
@@ -109,9 +102,11 @@ const Home: NextPage = (props) => {
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(link.shortLink);
+                        setCopied(idx);
                       }}
+                      className={copied === idx ? styles.copied : styles.copy}
                     >
-                      Copy
+                      {copied === idx ? "Copied!" : "Copy"}
                     </button>
                   </div>
                 </div>
@@ -180,10 +175,7 @@ const Home: NextPage = (props) => {
                 {" "}
                 <Image width="24px" height="24px" src={facebook} alt="hero" />
               </div>
-              <div>
-                {" "}
-                <Image width="24px" height="24px" src={instagram} alt="hero" />
-              </div>
+
               <div>
                 {" "}
                 <Image width="24px" height="24px" src={twitter} alt="hero" />
@@ -191,6 +183,10 @@ const Home: NextPage = (props) => {
               <div>
                 {" "}
                 <Image width="24px" height="24px" src={pintrest} alt="hero" />
+              </div>
+              <div>
+                {" "}
+                <Image width="24px" height="24px" src={instagram} alt="hero" />
               </div>
             </div>
           </div>
