@@ -18,6 +18,7 @@ const Home: NextPage = (props) => {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState<Url[]>([]);
   const [copied, setCopied] = useState<Number | null>(null);
+  const [storage, setStorage] = useState({});
 
   useEffect(() => {
     if (window) {
@@ -42,9 +43,25 @@ const Home: NextPage = (props) => {
             shortLink: data.result.full_short_link,
           },
         ]);
+        sessionStorage.setItem(`${url}`, `${data.result.full_short_link}`);
       });
     setUrl("");
   };
+
+  useEffect(() => {
+    if (window) {
+      const storage = window.sessionStorage;
+      if (storage.length >= 1) {
+        const str = Object.keys(storage).map((k) => {
+          return {
+            originalLink: k,
+            shortLink: storage[k],
+          };
+        });
+        setShortUrl([...str]);
+      }
+    }
+  }, [url]);
 
   return (
     <div className={styles.container}>
