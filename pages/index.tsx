@@ -115,7 +115,9 @@ const Home: NextPage = (props) => {
                 <div key={link.shortLink} className={styles.shortlink}>
                   <p>{link.originalLink}</p>
                   <div className={styles.rightside}>
-                    <a href={link.shortLink}>{link.shortLink}</a>
+                    <a href={link.shortLink} target="_blank" rel="noreferrer">
+                      {link.shortLink}
+                    </a>
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(link.shortLink);
@@ -169,7 +171,7 @@ const Home: NextPage = (props) => {
         </section>
 
         <section className={styles.calltoaction}>
-          <h2 className={styles.title}>Boost your links today</h2>
+          <h1>Boost your links today</h1>
           <button className={styles.started}>Get Started</button>
         </section>
         <footer className={styles.footerwrapper}>
